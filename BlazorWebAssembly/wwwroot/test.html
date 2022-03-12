@@ -9,19 +9,22 @@
     <script src="./ethers-5.1.esm.min.js"
             type="application/javascript"></script>
 
-    <script>
+    <script type="module">
+        import { ethers } from "./ethers-5.1.esm.min.js";
         const provider = new ethers.providers.Web3Provider(window.ethereum)
-        await provider.send("eth_requestAccounts", []);
-        const signer = provider.getSigner();
-        var address = await signer.getAddress();
 
-        function test() {
-            document.getElementById('gm').innerHTML = "Good night";
-        }
+        await provider.send("eth_requestAccounts", []);
+
+        const signer = provider.getSigner();
+        var address = await signer.getAddress();        
+        document.getElementById('address').innerHTML =
+            "Address: " + await signer.getAddress();        
     </script>
+
 
     <div id="gm">Good morning</div>
     <div id="hello">Hello</div>
+    <div id="address"></div>    
 
     <button onclick="test()">Test</button>
     <button onclick="test2()">Test2</button>

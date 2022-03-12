@@ -5,16 +5,13 @@
 
 <p>The time is: @DateTime.Now</p>
 
-<p>
-    <button @onclick="@GetAddress">GetAddress</button>
-</p>
-<p id="address"></p>
+<div id="address"></div>
 <p>@Address</p>
 
 @code {
     public string? Address { get; set; }    
 
-    private async void GetAddress() =>    
-        Address = await jsRuntime.InvokeAsync<string>("getAddress");        
+    //private async void GetAddress() =>    
+      //  Address = await jsRuntime.InvokeAsync<string>("getAddress");        
     
 }

@@ -30,13 +30,10 @@
 
         const signer = provider.getSigner();
         var address = await signer.getAddress();
-        
-        function getAddress() {
-            document.getElementById('address').innerHTML = "Hello world";            
-        }
-        export { getAddress };
+        document.getElementById('address').innerHTML =
+            "Address: " + await signer.getAddress();
     </script>
-        
+        <var {id="address"}></var>
     <!--These work with Razor page code----
         <script>function GetMyAddress() { return "Hello World!"; }</script>
         <script>function GetMyAddress() { document.getElementById('address').innerHTML = "Hello world"; }</script>
