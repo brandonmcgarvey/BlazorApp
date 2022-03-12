@@ -6,7 +6,15 @@
 </head>
 <body>
     <script src="connectEthers.js" type="application/javascript"></script>
+    <script src="./ethers-5.1.esm.min.js"
+            type="application/javascript"></script>
+
     <script>
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        await provider.send("eth_requestAccounts", []);
+        const signer = provider.getSigner();
+        var address = await signer.getAddress();
+
         function test() {
             document.getElementById('gm').innerHTML = "Good night";
         }
