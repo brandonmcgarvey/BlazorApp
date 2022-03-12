@@ -1,0 +1,20 @@
+﻿@page "/"
+
+@inject IJSRuntime jsRuntime
+<h3>MetaMask</h3>
+
+<p>The time is: @DateTime.Now</p>
+
+<p>
+    <button @onclick="@GetAddress">GetAddress</button>
+</p>
+<p id="address"></p>
+<p>@Address</p>
+
+@code {
+    public string? Address { get; set; }    
+
+    private async void GetAddress() =>    
+        Address = await jsRuntime.InvokeAsync<string>("getAddress");        
+    
+}
