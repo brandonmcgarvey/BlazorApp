@@ -6,4 +6,4 @@ await provider.send("eth_requestAccounts", []);
 const signer = provider.getSigner();
 var address = await signer.getAddress();
 document.getElementById('address').innerHTML =
-    "Address: " + await signer.getAddress();
+    "Address: " + address;
